@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Ponto | Gestão de Jornada Next-Gen</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: {
+                        genesis: {
+                            dark: '#0B0F19',
+                            card: '#151E2E',
+                            border: '#2A3441',
+                            primary: '#3b82f6',
+                            accent: '#10b981',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #0B0F19;
+            color: #f8fafc;
+            background-image: 
+                radial-gradient(circle at 15% 50%, rgba(59, 130, 246, 0.08), transparent 25%),
+                radial-gradient(circle at 85% 30%, rgba(16, 185, 129, 0.08), transparent 25%);
+            background-attachment: fixed;
+        }
+
+        .glass-panel {
+            background: linear-gradient(145deg, rgba(21, 30, 46, 0.9) 0%, rgba(15, 23, 42, 0.8) 100%);
+            backdrop-filter: blur(16px);
+            border: 1px solid var(--tw-colors-genesis-border);
+            transition: all 0.3s ease;
+        }
+
+        .glass-panel:hover {
+            border-color: rgba(59, 130, 246, 0.4);
+            box-shadow: 0 10px 40px -10px rgba(59, 130, 246, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .text-gradient {
+            background: linear-gradient(to right, #60a5fa, #34d399);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .text-gradient-alert {
+            background: linear-gradient(to right, #fbbf24, #f87171);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Animação do Radar de Geofencing */
+        .radar {
+            position: relative;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            background: rgba(16, 185, 129, 0.05);
+            overflow: hidden;
+        }
+        .radar::before {
+            content: '';
+            position: absolute;
+            top: 50%; left: 50%;
+            width: 100%; height: 100%;
+            background: conic-gradient(from 0deg, transparent 70%, rgba(16, 185, 129, 0.6) 100%);
+            transform-origin: 0 0;
+            animation: scan 2s linear infinite;
+        }
+        @keyframes scan {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body class="antialiased overflow-x-hidden selection:bg-genesis-primary selection:text-white">
+
+    <nav class="fixed w-full z-50 glass-panel border-t-0 border-r-0 border-l-0 rounded-none bg-genesis-dark/80">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold tracking-tighter flex items-center">
+                <i class="fa-solid fa-clock text-genesis-primary mr-2"></i>Meu<span class="text-gradient">Ponto</span>
+            </div>
+            <div class="hidden md:flex space-x-6">
+                <a href="#features" class="text-sm font-medium text-gray-400 hover:text-white transition">Engine</a>
+                <a href="#compliance" class="text-sm font-medium text-gray-400 hover:text-white transition">Portaria 671</a>
+                <a href="#aws" class="text-sm font-medium text-gray-400 hover:text-white transition">Infraestrutura</a>
+            </div>
+            <a href="#contact" class="px-4 py-2 rounded-lg bg-white/5 border border-white/10 text-sm font-medium hover:bg-white/10 transition">Waitlist</a>
+        </div>
+    </nav>
+
+    <section class="relative pt-40 pb-20 lg:pt-48 lg:pb-32">
+        <div class="max-w-7xl mx-auto px-6 relative z-10 text-center">
+            <div class="inline-flex items-center px-3 py-1 rounded-full border border-genesis-accent/30 bg-genesis-accent/10 text-genesis-accent text-xs font-bold uppercase tracking-wider mb-8">
+                <span class="w-2 h-2 rounded-full bg-genesis-accent animate-pulse mr-2"></span> REP-P Oficial Homologado
+            </div>
+            <h1 class="text-5xl lg:text-7xl font-extrabold tracking-tight mb-6 leading-tight max-w-4xl mx-auto">
+                O motor de cálculo definitivo para <span class="text-gradient">Gestão de Jornada.</span>
+            </h1>
+            <p class="text-xl text-gray-400 mb-10 max-w-2xl mx-auto font-light">
+                Esqueça as planilhas. Uma arquitetura SaaS implacável com Liveness Detection, Geofencing, motor de apuração CLT e IA preditiva para zerar seu passivo trabalhista.
+            </p>
+            
+            <div class="mt-16 relative max-w-5xl mx-auto">
+                <div class="absolute inset-0 bg-genesis-primary/20 blur-[100px] -z-10 rounded-full"></div>
+                <div class="glass-panel p-2 rounded-2xl">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2000&auto=format&fit=crop" alt="Dashboard Dashboard" class="rounded-xl w-full h-[300px] md:h-[500px] object-cover opacity-80 hover:opacity-100 transition duration-500">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Engenharia de <span class="text-gradient">Precisão Antifraude</span></h2>
+                <p class="text-gray-400">Desenvolvido com tolerância zero para inconsistências. Regras de negócio cristalinas.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                
+                <div class="md:col-span-2 glass-panel p-8 rounded-2xl flex flex-col justify-between overflow-hidden relative">
+                    <div class="relative z-10">
+                        <div class="w-12 h-12 rounded-lg bg-blue-500/10 flex items-center justify-center text-genesis-primary text-xl mb-6">
+                            <i class="fa-solid fa-face-viewfinder"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3">Liveness Detection (Reconhecimento Facial)</h3>
+                        <p class="text-gray-400 text-sm md:text-base max-w-md">Validação 3D passiva com IA. Se o match for > 90%, aprovação silenciosa. Se suspeito, aciona a <strong>Auditoria Fotográfica</strong> do RH. Previne fotos impressas ou mock de câmeras.</p>
+                    </div>
+                    <div class="absolute right-0 bottom-0 w-64 opacity-20 transform translate-x-10 translate-y-10">
+                        <i class="fa-solid fa-fingerprint text-[200px] text-genesis-primary"></i>
+                    </div>
+                </div>
+
+                <div class="glass-panel p-8 rounded-2xl relative overflow-hidden">
+                    <div class="radar mb-6"></div>
+                    <h3 class="text-xl font-bold mb-2">Cerca Virtual</h3>
+                    <p class="text-gray-400 text-sm">Controle rígido por Geofencing (Raio de X metros). Bloqueio automático de batidas externas com sistema anti-Fake GPS ativo via APIs de OS.</p>
+                </div>
+
+                <div class="glass-panel p-8 rounded-2xl">
+                    <div class="text-yellow-500 text-2xl mb-4"><i class="fa-solid fa-wifi"></i></div>
+                    <h3 class="text-xl font-bold mb-2">Modo Offline (Duplo Timestamp)</h3>
+                    <p class="text-gray-400 text-sm">Colaborador no subsolo sem 4G? O app salva localmente e usa o uptime do OS contra fraudes de relógio, sincronizando assim que a rede voltar.</p>
+                </div>
+
+                <div class="md:col-span-2 glass-panel p-8 rounded-2xl border-l-4 border-l-purple-500">
+                    <h3 class="text-2xl font-bold mb-4 flex items-center"><i class="fa-solid fa-microchip text-purple-500 mr-3"></i> O Coração do Sistema: Motor CLT</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6">
+                        <div>
+                            <h4 class="font-semibold text-white text-sm mb-1">Cálculo de Adicional Noturno</h4>
+                            <p class="text-gray-500 text-xs">Conversão automática da hora reduzida (52m30s) e aplicação da Súmula 60 TST (Prorrogação Noturna).</p>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-white text-sm mb-1">Banco de Horas FIFO</h4>
+                            <p class="text-gray-500 text-xs">Amortização inteligente. Limites de injeção diária e compensação automática no fechamento do ciclo.</p>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-white text-sm mb-1">Regras de Tolerância</h4>
+                            <p class="text-gray-500 text-xs">Gestão estrita da tolerância de 10 minutos (Art. 58 CLT). Controle de Interjornada (11h) e Intrajornada (1h).</p>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-white text-sm mb-1">Múltiplos Regimes</h4>
+                            <p class="text-gray-500 text-xs">Bloqueios críticos em tempo real para Estagiários e Menor Aprendiz, evitando passivos instantâneos.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="compliance" class="py-20 border-t border-white/5 bg-gradient-to-b from-genesis-dark to-[#0f1523]">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col lg:flex-row gap-12 items-center">
+                <div class="lg:w-1/2">
+                    <h2 class="text-3xl font-bold mb-6">Auditoria e <span class="text-gradient">Portaria 671</span></h2>
+                    <ul class="space-y-6">
+                        <li class="flex">
+                            <i class="fa-solid fa-file-shield text-genesis-accent mt-1 mr-4 text-xl"></i>
+                            <div>
+                                <h4 class="font-bold text-lg">Geração de AFD e AEJ</h4>
+                                <p class="text-gray-400 text-sm mt-1">Logs brutos imutáveis e consolidação fiscal (Anexo VI). Assinatura digital do espelho de ponto via App pelo colaborador, com trava de edição (RBAC).</p>
+                            </div>
+                        </li>
+                        <li class="flex">
+                            <i class="fa-solid fa-list-check text-blue-400 mt-1 mr-4 text-xl"></i>
+                            <div>
+                                <h4 class="font-bold text-lg">Self-Service com Audit Trail</h4>
+                                <p class="text-gray-400 text-sm mt-1">Ajustes manuais e inclusão de atestados via celular, caindo num fluxo de aprovação com log completo: Quem, Quando, Onde e Por quê.</p>
+                            </div>
+                        </li>
+                        <li class="flex">
+                            <i class="fa-solid fa-plug text-purple-400 mt-1 mr-4 text-xl"></i>
+                            <div>
+                                <h4 class="font-bold text-lg">Webhooks & Integração ERP</h4>
+                                <p class="text-gray-400 text-sm mt-1">Disparo de eventos em tempo real (ex: Slack/Teams) e exportação de layouts variáveis e customizáveis para TOTVS, SAP e Senior.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="lg:w-1/2 w-full">
+                    <div class="glass-panel p-6 rounded-2xl relative">
+                        <div class="absolute -top-4 -right-4 bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg shadow-red-500/50">
+                            C-Level View
+                        </div>
+                        <h4 class="text-xl font-bold mb-4 border-b border-white/10 pb-4">Custo Passivo Projetado (Mês)</h4>
+                        <div class="text-5xl font-black text-gradient-alert mb-2">R$ 14.850,00</div>
+                        <p class="text-sm text-gray-400 mb-6"><i class="fa-solid fa-arrow-trend-up text-red-400 mr-1"></i> +12% em horas extras na Logística</p>
+                        
+                        <div class="h-2 w-full bg-white/5 rounded-full overflow-hidden flex">
+                            <div class="h-full bg-red-500 w-[60%]"></div>
+                            <div class="h-full bg-yellow-500 w-[25%]"></div>
+                            <div class="h-full bg-green-500 w-[15%]"></div>
+                        </div>
+                        <div class="flex justify-between text-xs text-gray-500 mt-2">
+                            <span>HE 100% (Dom/Fer)</span>
+                            <span>HE 50%</span>
+                            <span>Banco (+0h)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="aws" class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold mb-4">Construído em Java. Escalado na <span class="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-500">AWS.</span></h2>
+            <p class="text-gray-400 max-w-2xl mx-auto mb-12">Backend em Spring Boot e PostgreSQL estruturado para suportar milhões de requisições de ponto simultâneas no horário de pico.</p>
+            
+            <div class="glass-panel p-8 max-w-3xl mx-auto rounded-2xl flex flex-col md:flex-row items-center text-left gap-8">
+                <div class="text-5xl text-orange-400">
+                    <i class="fa-solid fa-brain"></i>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold text-white mb-2">IA Preditiva com Kiro (AWS Marketplace)</h3>
+                    <p class="text-gray-400 text-sm">O cruzamento do motor de regras da CLT com a inteligência do Kiro cria o mapa de calor de absenteísmo perfeito. Antecipamos fraudes, detectamos anomalias em marcações e alertamos gestores sobre o risco de violação de interjornada antes mesmo do funcionário bater o ponto.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact" class="border-t border-white/10 bg-[#070A11] pt-16 pb-8 text-center">
+        <div class="max-w-4xl mx-auto px-6">
+            <h2 class="text-3xl font-bold mb-6">Elimine a margem de erro.</h2>
+            <p class="text-gray-400 mb-8">Nossa infraestrutura está sendo provisionada. Entre na fila prioritária.</p>
+            
+            <a href="mailto:leonardoforbici1@gmail.com" class="inline-block px-8 py-4 rounded-lg bg-white text-genesis-dark font-bold hover:bg-gray-200 transition shadow-[0_0_20px_rgba(255,255,255,0.2)]">
+                Falar com os Founders
+            </a>
+
+            <div class="border-t border-white/10 mt-16 pt-8 text-sm text-gray-600 flex flex-col md:flex-row justify-between">
+                <p>&copy; 2026 Meu Ponto. Um produto Orctus.</p>
+                <div class="mt-4 md:mt-0">
+                    <span class="mr-4">Feito para Nuvem</span>
+                    <span><i class="fa-solid fa-shield-halved text-genesis-accent"></i> REP-P Compliant</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
